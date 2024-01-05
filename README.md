@@ -1,40 +1,32 @@
 # Interfacce funzionali
 
-### Intro
-Si definisce interfaccia funzionale, un interfaccia che contiene un solo metodo astratto.
-Nel main realizzato, sfruttando la potenzialiatà delle interfacce funzionali e dei generici, ho riportato una serie di esempi mostrando un tipico funzionamento
-di callback.
-Ho applicato alla lista generica `objects` una serie di funzioni elementari sviluppate mediante le interfacce funzionali più comuni.
+### Introduzione
+Un'interfaccia funzionale è definita come un'interfaccia che contiene un solo metodo astratto. Nel main sviluppato, sfruttando le potenzialità delle interfacce funzionali e dei generici, ho presentato una serie di esempi per illustrare il tipico funzionamento. Ho applicato una serie di funzioni elementari alla lista generica "objects" mediante le interfacce funzionali più comuni.
 
 ### Supplier
-L'interfaccia Supplier non consente input, mediante il metodo get() ritorna un valore di un tipo definito.
-Nell'esempio proposto l'ho utilizzata come printer
-`static <T> void printer (Supplier<T> supplier) {
+L'interfaccia Supplier non ammette input e, attraverso il metodo get(), restituisce un valore di un tipo definito. Nell'esempio proposto, l'ho utilizzata come segue:
+
+```java
+static <T> void printer(Supplier<T> supplier) {
     System.out.println(supplier.get());
- }`
-`
+}
+```
 
 ### Runnable
-L'interfaccia Runnable non consente ne input ne output. Viene eseguita mediate il metodo run().
+L'interfaccia Runnable non consente né input né output e viene eseguita attraverso il metodo run().
 
 ### Consumer
-L'interfaccia Consumer prende un valore in input ma non ha alcun tipo di ritorno. Viene eseguita mediante il metodo accept(). 
-L'interfaccia contient anche un default metodo `andThen` utile per una sviluppare una sequenza di consumatori.
+L'interfaccia Consumer prende un valore in input ma non ha alcun tipo di ritorno. Viene eseguita mediante il metodo accept(). L'interfaccia contiene anche un metodo di default andThen, utile per sviluppare una sequenza di consumatori.
 
 ### Predicate
-L'interfaccia Predicate prende un input e restitusice in output un booleano. Viene eseguita mediante il metodo test().
+L'interfaccia Predicate prende un input e restituisce in output un booleano. Viene eseguita mediante il metodo test().
 
 ### Function
-L'interfaccia Function prende un input e restituisce un output. Viene eseguita mediante il metodo apply();
-
-Quelle elencate sono le interfacce funzionali che giornalmente utilizzo. A queste se ne aggiungono altre come ad esempio BiPredicate, Callable ecc...
+L'interfaccia Function prende un input e restituisce un output. Viene eseguita mediante il metodo apply().
 
 
 ### Custom Function Interface
-Capita che le interfacce funzionali di Java non soddisfino le esigeneze di sviluppo, cosi è possibile svilupparne di custom.
-Le interfacce vanno annotate con `@FunctionalInterface` come fatto per la classe `FunctionThrowable`, 
- al metodo apply() vengono passati due argomenti, inoltre ho aggiunto `throws RuntimeException`.
-
+A volte le interfacce funzionali di Java non soddisfano le esigenze di sviluppo, quindi è possibile svilupparne di personalizzate. Le interfacce devono essere annotate con @FunctionalInterface, come nel caso della classe FunctionThrowable. Il metodo apply() di questa classe prende due argomenti, ho customizzato inserendo la dichiarazione di throws RuntimeException.
 
 
 
